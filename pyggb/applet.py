@@ -48,13 +48,13 @@ class JavaApplet(object):
                    "centerimage"]
     no_java_text = """Sorry, the GeoGebra Applet could not be started.
 Please make sure that Java 1.4.2 (or later) is installed and activated.
-(<a href="http://java.sun.com/getjava">Click here to install Java now</a>)"""
+(<a href="https://java.sun.com/getjava">Click here to install Java now</a>)"""
     
     def __init__(self, js_id, filename, width, height, applet_params):
         """Constructor should at very least pass id and filename,
         outside class will want to be able to introspect.
         """
-        self.webstart_url = "http://www.geogebra.org/webstart/"
+        self.webstart_url = "https://www.geogebra.org/webstart/"
         self.webstart_version = "4.2"
         self.id = js_id
         self.filename = filename
@@ -83,7 +83,7 @@ Please make sure that Java 1.4.2 (or later) is installed and activated.
               'value': "-Xmx512m -Djnlp.packEnabled=true"})
         xml_param = ElementTree.SubElement(self.xml_root, "param", attrib=
              {'name': "image",
-              'value': "http://www.geogebra.org/webstart/loading.gif"})
+              'value': "https://www.geogebra.org/webstart/loading.gif"})
         
         _indent(self.xml_root)
     
@@ -148,7 +148,7 @@ class HTML5IFrame(object):
         self.load_html(applet_params)
         
     def load_html(self, applet_params):
-        base_ggbtube_url = "http://www.geogebratube.org/material/iframe"
+        base_ggbtube_url = "https://www.geogebratube.org/material/iframe"
         self.ggbtube_url = \
             "{base_url}/id/{id}/width/{width}/height/{height}" \
             "/border/888888/at/{applet_type}".format(
@@ -170,4 +170,4 @@ class HTML5IFrame(object):
              "style": "border:0px;"}
         
     def __str__(self):
-        return ElementTree.tostring(self.xml_root)
+        return ElementTree.tostring(self.xml_root)
